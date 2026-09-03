@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run tests
+        run: node --test
+
+      - name: Build userscript
+        run: node scripts/build.js
+
+      - name: Check generated userscript syntax
+        run: node --check WPFX网盘链接直达.user.js
+
+      - name: Verify generated userscript is up to date
+        run: git diff --exit-code -- WPFX网盘链接直达.user.js
