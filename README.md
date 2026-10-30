@@ -40,6 +40,7 @@
 node --test
 node scripts/build.js
 node --check WPFX网盘链接直达.user.js
+git diff --check
 ```
 
 修改 `src/` 中的源码后，请运行构建命令并一并提交生成的 `WPFX网盘链接直达.user.js`。
@@ -47,7 +48,7 @@ node --check WPFX网盘链接直达.user.js
 ## 兼容范围
 
 - 用户脚本管理器：Tampermonkey。
-- 页面范围：仅 `https://wpfx.org/ziyuan/*`。
+- 页面范围：仅 `https://wpfx.org/ziyuan/*` 和 `https://wpfx.org.cn/ziyuan/*`，不匹配其他主机或子域名。
 - 页面条件：网盘按钮为带有 `data-disk-url` 属性的 `a.disk-link` 元素。
 - 地址协议：仅 HTTP 和 HTTPS。
 

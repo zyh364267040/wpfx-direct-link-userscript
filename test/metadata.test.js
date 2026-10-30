@@ -12,11 +12,11 @@ const userscript = fs.readFileSync(
 );
 const metadata = userscript.match(/\/\/ ==UserScript==[\s\S]*?\/\/ ==\/UserScript==/);
 
-test('发布元数据完整且版本固定为 1.0.0', () => {
+test('发布元数据完整且版本固定为 1.0.1', () => {
   assert.ok(metadata, '缺少用户脚本元数据块');
 
   for (const line of [
-    '// @version      1.0.0',
+    '// @version      1.0.1',
     '// @author       zyh364267040',
     '// @license      MIT',
     '// @homepageURL  https://github.com/zyh364267040/wpfx-direct-link-userscript',
@@ -29,7 +29,7 @@ test('发布元数据完整且版本固定为 1.0.0', () => {
 test('站点范围和权限保持严格', () => {
   assert.deepEqual(
     [...metadata[0].matchAll(/^\/\/ @match\s+(.+)$/gm)].map((match) => match[1]),
-    ['https://wpfx.org/ziyuan/*']
+    ['https://wpfx.org/ziyuan/*', 'https://wpfx.org.cn/ziyuan/*']
   );
   assert.match(metadata[0], /^\/\/ @grant\s+none$/m);
 

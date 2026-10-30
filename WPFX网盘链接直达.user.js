@@ -1,13 +1,14 @@
 // ==UserScript==
 // @name         WPFX 网盘链接直达
 // @namespace    https://wpfx.org/
-// @version      1.0.0
+// @version      1.0.1
 // @description  将 WPFX 资源页的网盘按钮转换为经过校验的真实直达链接
 // @author       zyh364267040
 // @license      MIT
 // @homepageURL  https://github.com/zyh364267040/wpfx-direct-link-userscript
 // @supportURL   https://github.com/zyh364267040/wpfx-direct-link-userscript/issues
 // @match        https://wpfx.org/ziyuan/*
+// @match        https://wpfx.org.cn/ziyuan/*
 // @run-at       document-idle
 // @grant        none
 // ==/UserScript==
